@@ -70,14 +70,11 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $data = $request->validated();
         
-        // Actualizar usando fill y save explícitamente
         foreach ($data as $key => $value) {
             $user->$key = $value;
         }
         
         $user->save();
-        
-        // Obtener datos frescos de la BD
         $user = User::find($id);
 
         return response()->json(UserResource::make($user), 200);
