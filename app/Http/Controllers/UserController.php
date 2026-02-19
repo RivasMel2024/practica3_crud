@@ -22,8 +22,8 @@ class UserController extends Controller
         // Buscando usuario por nombre o email
         $users = User::query()
             ->when(
-                value: $request->input('is_trashed') === 'true',
-                callback: fn($query) => $query->onlyTrashed()
+                $request->input('is_trashed') === 'true',
+                fn($query) => $query->onlyTrashed()
             )
             ->when(
                 $request->has('username'),

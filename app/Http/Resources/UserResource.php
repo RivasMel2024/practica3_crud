@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/** formatea la respuesta JSON para que no expongas todos los campos del modelo: */
 class UserResource extends JsonResource
 {
     /**
